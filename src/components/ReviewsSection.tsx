@@ -170,7 +170,7 @@ const ReviewsSection = () => {
                     <Quote className="w-8 h-8 text-delca-orange/30" />
                     <div className="flex items-center gap-1">{renderStars(review.rating)}</div>
                   </div>
-                  <p className="text-gray-300 leading-relaxed mb-6 flex-grow">"{review.text}"</p>
+                  <p className="text-gray-300 leading-relaxed mb-6 flex-grow">&quot;{review.text}&quot;</p>
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-700">
                     <img src={review.profile_photo_url} alt={review.author_name} className="w-12 h-12 rounded-full object-cover" />
                     <div>
