@@ -26,7 +26,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen flex items-center justify-center text-center"
+      className="relative w-full h-screen flex items-center justify-center text-center pt-20 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
         <img

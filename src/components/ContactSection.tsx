@@ -59,7 +59,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 lg:py-24 bg-white" ref={ref}>
+    <section id="contact" className="py-20 lg:py-24 bg-white overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Cabeçalho */}
         <motion.div
@@ -100,7 +100,7 @@ const ContactSection = () => {
         </div>
 
         {/* Conteúdo */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Coluna Esquerda: Conteúdo de Contato */}
           <motion.div
             className="space-y-8"

@@ -24,7 +24,7 @@ const PartnersSection = () => {
   const animationDuration = brands.length * 2;
 
   return (
-    <section id="partners" className="py-20 lg:py-24 bg-gray-100 border-t border-gray-200">
+    <section id="partners" className="py-20 lg:py-24 bg-gray-100 border-t border-gray-200 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Cabeçalho da Seção */}
         <motion.div

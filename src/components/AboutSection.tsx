@@ -13,7 +13,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-24 lg:py-0 bg-white">
+    <section id="about" className="min-h-screen flex items-center py-24 lg:py-0 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

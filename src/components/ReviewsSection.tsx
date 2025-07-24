@@ -101,7 +101,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-24 lg:py-32 bg-gray-900 text-white overflow-hidden">
+    <section id="reviews" className="py-24 lg:py-32 bg-gray-900 text-white overflow-hidden overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
