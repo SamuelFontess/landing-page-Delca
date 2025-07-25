@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const brands = [
@@ -16,56 +16,53 @@ const brands = [
   { name: 'Mizu', logo: '/partners/mizu.png' },
 ];
 
-// Efeito de loop infinito
 const extendedBrands = [...brands, ...brands];
 
 const PartnersSection = () => {
-  // Velocidade do carrossel
-  const animationDuration = brands.length * 2;
+  const [animationDuration, setAnimationDuration] = useState('30s');
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+
+      // durações de animação para cada tamanho de tela
+      if (width < 640) {
+        setAnimationDuration('9s'); // celular
+      } else if (width < 1024) {
+        setAnimationDuration('20s'); // tablet
+      } else {
+        setAnimationDuration('30s'); // desktop
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <section id="partners" className="py-20 lg:py-24 bg-gray-100 border-t border-gray-200 overflow-hidden">
+    <section id="partners" className="py-20 lg:py-24 bg-gray-100">
       <div className="container mx-auto px-4">
-        {/* Cabeçalho da Seção */}
-        <motion.div
-          className="text-center mb-12 lg:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             As Melhores Marcas, <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red">Um Só Lugar</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Trabalhamos em parceria com os líderes do mercado para garantir a máxima qualidade e durabilidade para o seu projeto.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Carrossel Infinito de Logos */}
-        <motion.div
+        <div
           className="relative w-full overflow-hidden"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ '--animation-duration': animationDuration } as React.CSSProperties}
         >
           <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent z-10" />
           <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent z-10" />
 
-          <motion.div
-            className="flex"
-            animate={{
-              x: ['-100%', '0%'],
-              transition: {
-                ease: 'linear',
-                duration: animationDuration,
-                repeat: Infinity,
-              },
-            }}
-          >
+          <div className="flex animate-scroll">
             {extendedBrands.map((brand, index) => (
-              <div key={index} className="flex-shrink-0 mx-8 flex items-center justify-center" style={{ width: '160px' }}>
+              <div key={`brand-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center" style={{ width: '160px' }}>
                 <Image
                   src={brand.logo}
                   alt={`Logo da ${brand.name}`}
@@ -75,8 +72,8 @@ const PartnersSection = () => {
                 />
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

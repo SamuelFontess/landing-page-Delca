@@ -48,4 +48,13 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  @keyframes scroll-horizontal {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
 }
