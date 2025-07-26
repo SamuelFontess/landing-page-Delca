@@ -16,22 +16,26 @@ const brands = [
   { name: 'Mizu', logo: '/partners/mizu.png' },
 ];
 
-const extendedBrands = [...brands, ...brands];
+const extendedBrands = [...brands, ...brands, ...brands]; // Triplicar para garantir continuidade
 
 const PartnersSection = () => {
-  const [animationDuration, setAnimationDuration] = useState('30s');
+  const [animationDuration, setAnimationDuration] = useState('40s');
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
 
-      // durações de animação para cada tamanho de tela
+      // Durações de animação otimizadas para cada tamanho de tela
       if (width < 640) {
-        setAnimationDuration('9s'); // celular
+        setAnimationDuration('20s'); // Mobile - tempo adequado para mostrar todas as logos
+      } else if (width < 768) {
+        setAnimationDuration('25s'); // Tablet pequeno
       } else if (width < 1024) {
-        setAnimationDuration('20s'); // tablet
+        setAnimationDuration('30s'); // Tablet
+      } else if (width < 1280) {
+        setAnimationDuration('35s'); // Desktop pequeno
       } else {
-        setAnimationDuration('30s'); // desktop
+        setAnimationDuration('40s'); // Desktop grande
       }
     };
 
@@ -54,22 +58,28 @@ const PartnersSection = () => {
         </div>
 
         <div
-          className="relative w-full overflow-hidden"
+          className="relative w-full overflow-hidden group"
           style={{ '--animation-duration': animationDuration } as React.CSSProperties}
         >
-          <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent z-10" />
-          <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-gray-100 to-transparent z-10" />
+          {/* Gradientes de fade nas laterais */}
+          <div className="absolute top-0 bottom-0 left-0 w-4 sm:w-8 md:w-12 lg:w-16 bg-gradient-to-r from-gray-100 to-transparent z-10" />
+          <div className="absolute top-0 bottom-0 right-0 w-4 sm:w-8 md:w-12 lg:w-16 bg-gradient-to-l from-gray-100 to-transparent z-10" />
 
-          <div className="flex animate-scroll">
+          <div className="flex animate-scroll group-hover:pause">
             {extendedBrands.map((brand, index) => (
-              <div key={`brand-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center" style={{ width: '160px' }}>
-                <Image
-                  src={brand.logo}
-                  alt={`Logo da ${brand.name}`}
-                  width={150}
-                  height={80}
-                  className="object-contain"
-                />
+              <div 
+                key={`brand-${index}`} 
+                className="flex-shrink-0 flex items-center justify-center w-[80px] sm:w-[100px] md:w-[140px] lg:w-[160px] xl:w-[180px]"
+              >
+                <div className="px-1 sm:px-2 md:px-3 lg:px-4">
+                  <Image
+                    src={brand.logo}
+                    alt={`Logo da ${brand.name}`}
+                    width={150}
+                    height={80}
+                    className="object-contain w-full h-auto max-w-[70px] sm:max-w-[90px] md:max-w-[130px] lg:max-w-[150px] xl:max-w-[170px] transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
               </div>
             ))}
           </div>

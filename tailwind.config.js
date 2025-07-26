@@ -53,7 +53,7 @@ module.exports = {
       keyframes: {
         'scroll-horizontal': {
           '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
         'accordion-down': {
           from: { height: '0' },
@@ -67,7 +67,7 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'scroll': 'scroll-horizontal var(--animation-duration, 40s) linear infinite',
+        'scroll': 'scroll-horizontal var(--animation-duration, 30s) linear infinite',
       },
     },
   },
