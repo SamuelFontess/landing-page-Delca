@@ -34,7 +34,7 @@ export function HeroSection() {
           alt="Fundo da loja de materiais de construção DELCA"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
       </div>
 
       <motion.div
@@ -43,12 +43,6 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-flex items-center px-4 py-1.5 bg-white/10 text-white border border-white/30 rounded-full text-base font-semibold backdrop-blur-sm">
-            <Award className="w-5 h-5 mr-2 text-delca-orange" />
-            Sua obra merece o melhor
-          </span>
-        </motion.div>
         
         <motion.h1
           variants={itemVariants}
@@ -62,14 +56,21 @@ export function HeroSection() {
         
         <motion.p
           variants={itemVariants}
-          className="mt-8 text-lg md:text-xl text-gray-200 max-w-3xl leading-relaxed [text-shadow:_0_2px_8px_rgb(0_0_0_/_0.5)]"
+          className="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl leading-relaxed [text-shadow:_0_2px_10px_rgb(0_0_0_/_0.6)]"
         >
           Há mais de 15 anos, somos a parceira de confiança para construtores e consumidores, fornecendo materiais que garantem excelência, segurança e durabilidade.
         </motion.p>
 
+        <motion.div variants={itemVariants} className="mb-4 mt-3">
+          <span className="inline-flex items-center px-4 py-1.5 bg-white/10 text-white border border-white/30 rounded-full text-base font-semibold backdrop-blur-sm">
+            <Award className="w-5 h-5 mr-2 text-delca-orange" />
+            Sua obra merece o melhor
+          </span>
+        </motion.div>
+
         <motion.div
           variants={itemVariants}
-          className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+          className="mt-1 flex flex-col sm:flex-row items-center gap-5"
         >
           <Button
             onClick={() => scrollToSection('#about')}
