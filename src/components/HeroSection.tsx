@@ -26,7 +26,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen flex items-center justify-center text-center pt-20 overflow-hidden"
+      className="relative w-full h-screen flex items-center justify-center text-center pt-25 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -34,7 +34,7 @@ export function HeroSection() {
           alt="Fundo da loja de materiais de construção DELCA"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
+        <div className="" />
       </div>
 
       <motion.div
@@ -49,12 +49,12 @@ export function HeroSection() {
           className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter [text-shadow:_0_4px_12px_rgb(0_0_0_/_0.4)]"
         >
           <span className="block">Construa com Confiança e Qualidade</span>
-          <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-orange-400">
+          {/* <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-orange-400">
             que só a DELCA oferece
-          </span>
+          </span> */}
         </motion.h1>
         
-        <motion.p
+        {/* <motion.p
           variants={itemVariants}
           className="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl leading-relaxed [text-shadow:_0_2px_10px_rgb(0_0_0_/_0.6)]"
         >
@@ -66,11 +66,11 @@ export function HeroSection() {
             <Award className="w-5 h-5 mr-2 text-delca-orange" />
             Sua obra merece o melhor
           </span>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           variants={itemVariants}
-          className="mt-1 flex flex-col sm:flex-row items-center gap-5"
+          className="mt-20 flex flex-col sm:flex-row items-center gap-5"
         >
           <Button
             onClick={() => scrollToSection('#about')}

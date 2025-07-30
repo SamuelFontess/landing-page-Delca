@@ -13,12 +13,12 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-24 lg:py-0 bg-white overflow-hidden">
+    <section id="about" className="min-h-screen flex items-center py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid xl:grid-cols-2 gap-12 lg:gap-16 items-center">
           
-          {/* Texto Sobre a Empresa */}
+          {/* Coluna da Esquerda: Texto Sobre a Empresa */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +79,7 @@ const AboutSection = () => {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <Image
-                src="/DelcaSobre.jpg"
+                src="/DelcaSobre.jpeg"
                 alt="Ambiente da loja DELCA Construções"
                 width={600}
                 height={700}
