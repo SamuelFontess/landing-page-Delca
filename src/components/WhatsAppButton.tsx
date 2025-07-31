@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-// MUDANÇA 1: Importar o componente Image do Next.js
 import Image from 'next/image';
 
 const WhatsAppButton = () => {
@@ -22,9 +21,9 @@ const WhatsAppButton = () => {
       whileTap={{ scale: 0.95 }}
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg text-white hover:bg-green-600 transition-colors duration-300"
     >
-      {/* MUDANÇA 2: Usando o componente Image em vez do ícone */}
+      {/* Usando o componente Image em vez do ícone do lucid react */}
       <Image
-        src="/WhatsApp-logo.webp" // Caminho a partir da pasta 'public'
+        src="/WhatsApp-logo.webp"
         alt="WhatsApp Logo"
         width={36} // Tamanho visual do ícone dentro do botão
         height={36}
