@@ -12,8 +12,25 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Delca construções",
-  description: "Sua parceira de confiança em materiais de construção.",
+  title: "DELCA Construções | Materiais de Construção em Parnamirim, RN",
+  description: "Encontre tudo para sua obra na DELCA Construções. Mais de 15 anos de experiência em Parnamirim, RN, com entrega rápida e os melhores preços em cimento, tijolos, tintas e mais.",
+  keywords: "materiais de construção, parnamirim, delca, Delca, DELCA, cimento, tijolo, areia, loja de construção, rn, material, material de construção",
+
+  openGraph: {
+    title: "DELCA Construções | Qualidade e Confiança para sua Obra",
+    description: "A sua parceira completa em materiais de construção em Parnamirim, RN.",
+    url: "https://www.delcaconstrucoes.com.br/",
+    siteName: "DELCA Construções",
+    images: [
+      {
+        url: "/opengraph.jpeg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +43,7 @@ export default function RootLayout({
       <body className={`${lato.className} antialiased`}>
         <Header />
         <main>
-          {children}
+        {children}
         </main>
         <Footer />
         <WhatsAppButton />

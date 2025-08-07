@@ -7,9 +7,9 @@ import { Building2, Check } from 'lucide-react';
 const AboutSection = () => {
   const highlights = [
     "Qualidade superior em todos os produtos.",
-    "Atendimento personalizado e especialista.",
+    "Atendimento personalizado e especialista para sua obra.",
     "Parceria com as melhores marcas do mercado.",
-    "Compromisso com a entrega e a sua satisfação."
+    "Compromisso com a entrega rápida em Parnamirim RN e região."
   ];
 
   return (
@@ -33,33 +33,30 @@ const AboutSection = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tighter">
-            Construindo Confiança, Entregando Qualidade.
+              Sua Loja de <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red">Materiais de Construção</span> em Parnamirim.
             </h2>
 
             <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-              A <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red text-2xl font-bold">DELCA Construções</span> é uma empresa com mais de 15 anos de experiência no mercado da construção civil em Parnamirim-RN, consolidada pela sua confiança, compromisso e dedicação ao cliente.
+              A <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red text-2xl font-bold">DELCA Construções</span> é a sua parceira de confiança com mais de 15 anos de experiência no mercado da construção civil em Parnamirim-RN. Somos conhecidos pelo nosso compromisso, atendimento dedicado e por oferecer o melhor preço justo da região.
             </p>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-            Ao longo de nossa trajetória, construímos parcerias sólidas com fornecedores e clientes, sempre com foco em um atendimento humanizado e em soluções que realmente fazem a diferença na vida de quem constrói.
+              Nosso diferencial está na vasta gama de produtos, que vai desde materiais básicos como cimento e areia, até acabamentos de alta qualidade. Tudo selecionado das melhores marcas para garantir a durabilidade da sua obra.
             </p>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-            Nosso diferencial está na variedade de produtos, que vai desde materiais básicos até acabamentos de qualidade, tudo selecionado para oferecer o melhor custo-benefício. Contamos com um ponto estratégico, facilitando o acesso dos nossos clientes e otimizando nossa logística de entrega rápida, garantindo mais agilidade para sua obra.
-            </p>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-            A Delca é sinônimo de preço justo, eficiência e confiança. Mais que uma loja de materiais de construção, somos uma parceira do seu projeto, seja ele pequeno, médio ou grande.
+              Contamos com um ponto estratégico e otimizamos nossa logística para garantir entrega rápida, agilizando seu projeto. Na Delca, você encontra eficiência e a certeza de um bom negócio.
             </p>
 
             <div className="mt-8 pt-6 border-t border-gray-200">
-              <div className="space-y-4">
+              <ul className="space-y-4">
                 {highlights.map((value, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                  <li key={index} className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center">
                       <Check className="w-4 h-4" />
                     </div>
                     <span className="text-gray-700 font-medium">{value}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </motion.div>
 
@@ -80,7 +77,7 @@ const AboutSection = () => {
             >
               <Image
                 src="/DelcaSobre.jpeg"
-                alt="Ambiente da loja DELCA Construções"
+                alt="Ambiente interno da loja de materiais de construção DELCA em Parnamirim, RN"
                 width={600}
                 height={700}
                 className="w-full h-full object-cover"
