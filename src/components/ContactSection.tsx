@@ -130,13 +130,13 @@ const ContactSection = () => {
               >
                 <div
                   className={`flex-shrink-0 p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 ${colors.bg}`}
-                >
-                  <method.icon
-                    className={`${colors.text} ${
-                      method.title === "WhatsApp" ? "w-9 h-9" : "w-7 h-7"
-                    }`}
-                  />
-                </div>
+                  >
+                    <method.icon
+                      className={`${colors.text} ${
+                        method.title === "WhatsApp" ? "w-8 h-8" : "w-7 h-7"
+                      }`}
+                    />
+                  </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800">{method.title}</h4>
                   <p className="text-gray-600 font-medium group-hover:underline">{method.value}</p>
@@ -144,17 +144,17 @@ const ContactSection = () => {
               </a>
             );
           })}
-            <div className="p-6 bg-gray-50 border border-gray-200/80 rounded-2xl">
-              <div className="flex items-center gap-4 mb-3">
-                <div className="flex-shrink-0 p-3 bg-delca-blue/10 rounded-xl">
-                  <Clock className="w-6 h-6 text-delca-blue" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-800">Horário de funcionamento</h4>
+            <div className="flex items-center gap-5 p-6 bg-gray-50 border border-gray-200/80 rounded-2xl shadow-sm">
+              <div className="flex-shrink-0 p-4 rounded-xl bg-delca-blue/10">
+                <Clock className="w-7 h-7 text-delca-blue" />
               </div>
-              <div className="space-y-1.5 text-gray-600 pl-16">
-                <p><strong>Segunda a Sexta:</strong> 7h às 17h</p>
-                <p><strong>Sábados:</strong> 7h às 12h</p>
-                <p><strong>Domingos:</strong> Fechado</p>
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800">Horário de funcionamento</h4>
+                <div className="mt-1 space-y-1.5 text-gray-600 font-medium">
+                  <p><strong>Segunda a Sexta:</strong> 7h às 17h</p>
+                  <p><strong>Sábados:</strong> 7h às 12h</p>
+                  <p><strong>Domingos:</strong> Fechado</p>
+                </div>
               </div>
             </div>
           </motion.div>

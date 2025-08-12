@@ -76,7 +76,7 @@ const Footer = () => {
                   className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-colors duration-300`}
                 >
                   {social.icon === WhatsappLogo ? (
-                    <social.icon className="w-6 h-6" weight="fill" />
+                    <social.icon className="w-6 h-6"/>
                   ) : (
                     <social.icon className="w-5 h-5" />
                   )}
