@@ -11,6 +11,7 @@ const menuItems = [
     { name: 'Início', href: '#hero' },
     { name: 'Sobre', href: '#about' },
     { name: 'Avaliações', href: '#reviews' },
+    { name: 'Produtos', href: '#products' },
     { name: 'Localização', href: '#location' },
     { name: 'Contato', href: '#contact' },
 ];

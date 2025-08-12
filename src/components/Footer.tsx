@@ -18,6 +18,7 @@ const Footer = () => {
     { name: 'Sobre', href: '#about' },
     { name: 'Avaliações', href: '#reviews' },
     { name: 'Localização', href: '#location' },
+    { name: 'Produtos', href: '#products' },
     { name: 'Contato', href: '#contact' },
   ];
 
