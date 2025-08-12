@@ -51,7 +51,7 @@ Este projeto foi desenvolvido com uma stack moderna, focada em performance, esca
 O design do projeto foi concebido para ser limpo, moderno e focado na identidade visual da marca DELCA, utilizando suas cores primárias (laranja e azul) como pontos de destaque. A estrutura visual alterna seções claras e escuras para criar um ritmo de leitura agradável e separar claramente os diferentes tipos de conteúdo.
 
 Você pode visualizar o resultado final do projeto através do deploy na Vercel:
-**[Acesse o site do projeto aqui (EM BREVE)]( )** 
+**[Acesse o site do projeto aqui (EM BREVE)](https://www.delcaconstrucoes.com.br/)** 
 
 ---
 
