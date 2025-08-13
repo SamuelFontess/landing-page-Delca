@@ -53,7 +53,7 @@ const Footer = () => {
               <div className="w-12 h-12 overflow-hidden rounded-xl shadow-md">
                 <Image 
                   src="/favicon.ico"
-                  alt="DELCA"
+                  alt="delca loja de material de construção Pium"
                   width={48}
                   height={48}
                   className="object-cover"

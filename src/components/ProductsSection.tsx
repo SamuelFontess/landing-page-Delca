@@ -83,7 +83,7 @@ const ProductsSection = () => {
               <div className="relative w-full h-48 overflow-hidden">
                 <Image
                   src={product.image}
-                  alt={product.name}
+                  alt={product.description}
                   layout="fill"
                   objectFit="cover"
                   className="group-hover:scale-110 transition-transform duration-300"

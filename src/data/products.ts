@@ -1,9 +1,10 @@
-import { BrickWall, PaintBucket, Wrench } from 'lucide-react';
+import { BrickWall, PaintBucket, Wrench, ShowerHead } from 'lucide-react';
 
 export interface Product {
   name: string;
   image: string;
   features: string[];
+  description: string;
 }
 
 export interface ProductCategory {
@@ -19,14 +20,14 @@ export const productsData: ProductCategory[] = [
     icon: BrickWall,
     color: "bg-delca-orange",
     products: [
-      { name: "Cimento Votoran", image: "/products/cimento.png", features: ["Alta resistência", "Secagem rápida", "Uso geral"] },
-      { name: "Tijolo Baiano 9 Furos", image: "/products/tijolo.png", features: ["Isolamento térmico", "Alvenaria de vedação", "Leveza"] },
-      { name: "Areia Média Lavada", image: "/products/areia.png", features: ["Ideal para concreto", "Livre de impurezas", "Alta qualidade"] },
-      { name: "Brita N° 1", image: "/products/brita.png", features: ["Para lajes e fundações", "Alta resistência", "Granulometria uniforme"] },
-      { name: "Vergalhão de Aço 8mm", image: "/products/vergalhao.png", features: ["Aço nervurado", "Segurança estrutural", "Norma ABNT"] },
-      { name: "Bloco de Concreto", image: "/products/bloco.png", features: ["Alvenaria estrutural", "Resistente", "Praticidade"] },
-      { name: "Telha de Fibrocimento", image: "/products/telha.png", features: ["Cobertura durável", "Custo-benefício", "Resistente"] },
-      { name: "Caixa d'Água 1000L", image: "/products/caixa-dagua.png", features: ["Material atóxico", "Armazenamento seguro", "Fácil instalação"] },
+      { name: "Cimento CP II", image: "/products/cimento.png", features: ["Alta resistência", "Secagem rápida", "Uso geral"], description: "Cimento CP II, Cimento CP 2, comprar cimento Parnamirim, Cimento barato em Parnamirim" },
+      { name: "Tijolo Cerâmico", image: "/products/tijolo.png", features: ["Isolamento térmico", "Alvenaria de vedação", "Leveza"], description: "Tijolo Cerâmico" },
+      { name: "Areia Fina, Média e Grossa", image: "/products/areia.png", features: ["Ideal para concreto", "Livre de impurezas", "Alta qualidade"], description: "Areia, Areia Fina e grossa e brita com entrega em Pium" },
+      { name: "Brita", image: "/products/brita.png", features: ["Para lajes e fundações", "Alta resistência", "Granulometria uniforme"], description: "brita 0, 1 e 2, onde comprar areia e brita Parnamirim" },
+      { name: "Vergalhão de Aço 8mm", image: "/products/vergalhao.png", features: ["Aço nervurado", "Segurança estrutural", "Norma ABNT"], description: "Vergalhão de Aço 8mm" }, 
+      { name: "Furadeira", image: "/products/bloco.png", features: ["Alvenaria estrutural", "Resistente", "Praticidade"], description: "Furadeira, Furadeira de impacto, Furadeira de impacto em Parnamirim RN, ferramentas para construção Parnamirim, ferramentas elétricas e manuais" },
+      { name: "Telha de Fibrocimento", image: "/products/telha.png", features: ["Cobertura durável", "Custo-benefício", "Resistente"], description: "Telha de Fibrocimento" },
+      { name: "Caixa d'Água 1000L", image: "/products/caixa-dagua.png", features: ["Material atóxico", "Armazenamento seguro", "Fácil instalação"], description: "Caixa d'Água 1000L" },
     ],
   },
   {
@@ -34,14 +35,14 @@ export const productsData: ProductCategory[] = [
     icon: PaintBucket,
     color: "bg-delca-blue",
     products: [
-      { name: "Tinta Acrílica Branca", image: "/products/tinta.png", features: ["Fosco aveludado", "Alta cobertura", "Resistente"] },
-      { name: "Piso Porcelanato 60x60", image: "/products/piso.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"] },
-      { name: "Argamassa AC-III", image: "/products/argamassa.png", features: ["Para porcelanatos", "Uso interno/externo", "Alta aderência"] },
-      { name: "Rejunte Flexível", image: "/products/rejunte.png", features: ["Acabamento liso", "Impermeável", "Anti-fungos"] },
-      { name: "Vaso Sanitário com Caixa", image: "/products/vaso.png", features: ["Design moderno", "Descarga ecológica", "Duplo acionamento"] },
-      { name: "Torneira de Bancada", image: "/products/torneira.png", features: ["Acabamento cromado", "Alta durabilidade", "Design elegante"] },
-      { name: "Chuveiro Elétrico", image: "/products/chuveiro.png", features: ["Multitemperaturas", "Fácil instalação", "Economia"] },
-      { name: "Luminária de LED", image: "/products/luminaria.png", features: ["Iluminação eficiente", "Econômica", "Luz branca"] },
+      { name: "Tinta Acrílica", image: "/products/tinta.png", features: ["Fosco aveludado", "Alta cobertura", "Resistente"], description: "Tinta Acrílica, Tintas e acabamento em Cajupiranga" },
+      { name: "Piso Porcelanato", image: "/products/piso.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "Piso Porcelanato, Pisos e azulejos em Cajupiranga, pisos cerâmicos e porcelanatos" },
+      { name: "Argamassa AC-III", image: "/products/argamassa.png", features: ["Para porcelanatos", "Uso interno/externo", "Alta aderência"], description: "Argamassa AC-III" },
+      { name: "Rejunte Flexível", image: "/products/rejunte.png", features: ["Acabamento liso", "Impermeável", "Anti-fungos"], description: "Rejunte Flexível, piso e revestimento Cajupiranga, itens para acabamento e reforma" },
+      { name: "Vaso Sanitário com Caixa", image: "/products/vaso.png", features: ["Design moderno", "Descarga ecológica", "Duplo acionamento"], description: "Vaso Sanitário com Caixa" },
+      { name: "Massa pra parede e teto", image: "/products/torneira.png", features: ["Acabamento cromado", "Alta durabilidade", "Design elegante"], description: "Massas de Banheiro, massas de banheiro em Cajupiranga, massas de banheiro em Parnamirim RN, tintas e massas para parede" },
+      { name: "Chuveiro Elétrico", image: "/products/chuveiro.png", features: ["Multitemperaturas", "Fácil instalação", "Economia"], description: "Chuveiro Elétrico" },
+      { name: "Luminária de LED", image: "/products/luminaria.png", features: ["Iluminação eficiente", "Econômica", "Luz branca"], description: "Luminária de LED" },
     ],
   },
   {
@@ -49,14 +50,29 @@ export const productsData: ProductCategory[] = [
     icon: Wrench,
     color: "bg-delca-red",
     products: [
-      { name: "Fechadura para Porta", image: "/products/fechadura.png", features: ["Aço inox escovado", "Alta segurança", "Design moderno"] },
-      { name: "Dobradiça de Aço", image: "/products/dobradica.png", features: ["Alta resistência", "Para portas de madeira", "Acabamento cromado"] },
-      { name: "Cadeado de Latão 40mm", image: "/products/cadeado.png", features: ["Latão maciço", "Haste de aço", "Máxima segurança"] },
-      { name: "Parafuso Sextavado", image: "/products/parafuso.png", features: ["Kit com porcas", "Alta resistência", "Fixações diversas"] },
-      { name: "Abraçadeira de Nylon", image: "/products/abracadeira.png", features: ["Fixação de cabos", "Praticidade", "Segurança"] },
-      { name: "Carrinho de Mão", image: "/products/carrinho.png", features: ["Estrutura reforçada", "Transporte pesado", "Durabilidade"] },
-      { name: "Escada de Alumínio", image: "/products/escada.png", features: ["5 degraus", "Leve e resistente", "Pés antiderrapantes"] },
-      { name: "Trena de 5 Metros", image: "/products/trena.png", features: ["Fita de aço", "Corpo emborrachado", "Medição precisa"] },
+      { name: "Fechadura para Porta", image: "/products/fechadura.png", features: ["Aço inox escovado", "Alta segurança", "Design moderno"], description: "Fechadura para Porta, Ferramentas para construção em Parnamirim RN" },
+      { name: "Dobradiça de Aço", image: "/products/dobradica.png", features: ["Alta resistência", "Para portas de madeira", "Acabamento cromado"], description: "Dobradiça de Aço" },
+      { name: "Cadeado de Latão 40mm", image: "/products/cadeado.png", features: ["Latão maciço", "Haste de aço", "Máxima segurança"], description: "Cadeado de Latão 40mm" },
+      { name: "Parafuso Sextavado", image: "/products/parafuso.png", features: ["Kit com porcas", "Alta resistência", "Fixações diversas"], description: "Parafuso Sextavado" },
+      { name: "Abraçadeira de Nylon", image: "/products/abracadeira.png", features: ["Fixação de cabos", "Praticidade", "Segurança"], description: "Abraçadeira de Nylon" },
+      { name: "Carrinho de Mão", image: "/products/carrinho.png", features: ["Estrutura reforçada", "Transporte pesado", "Durabilidade"], description: "Carrinho de Mão" },
+      { name: "Escada de Alumínio", image: "/products/escada.png", features: ["5 degraus", "Leve e resistente", "Pés antiderrapantes"], description: "Escada de Alumínio" },
+      { name: "Trena de 5 Metros", image: "/products/trena.png", features: ["Fita de aço", "Corpo emborrachado", "Medição precisa"], description: "Trena de 5 Metros" },
+    ],
+  },
+  {
+    category: "Hidraulico",
+    icon: ShowerHead,
+    color: "bg-delca-blue",
+    products: [
+      { name: "torneiras", image: "/products/torneira.png ", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "torneiras, torneiras de cozinha, torneiras de banheiro, torneiras de lavabo, torneiras de pia, torneiras de lavabo, torneiras de pia, torneiras de lavabo, torneiras de pia, torneiras de lavabo, torneiras de pia" },
+      { name: "conexões", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "conexões, conexões de cozinha, conexões de banheiro, conexões de lavabo, conexões de pia, conexões de lavabo, conexões de pia, conexões de lavabo, conexões de pia" },
+      { name: "registros", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "registros, registros de cozinha, registros de banheiro, registros de lavabo, registros de pia, torneiras, registros e conexões hidráulicas" },
+      { name: "caixas de gordura", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "caixas de gordura, caixas de gordura de cozinha, caixas de gordura de banheiro, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia" },
+      { name: "caixas de gordura", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "caixas de gordura, caixas de gordura de cozinha, caixas de gordura de banheiro, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia" },
+      { name: "caixas de gordura", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "caixas de gordura, caixas de gordura de cozinha, caixas de gordura de banheiro, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia" },
+      { name: "caixas de gordura", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "caixas de gordura, caixas de gordura de cozinha, caixas de gordura de banheiro, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia" },
+      { name: "caixas de gordura", image: "/products/caixa-gordura.png", features: ["Design moderno", "Alta durabilidade", "Uso interno"], description: "caixas de gordura, caixas de gordura de cozinha, caixas de gordura de banheiro, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia, caixas de gordura de lavabo, caixas de gordura de pia" },
     ],
   },
 ];

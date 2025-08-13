@@ -100,7 +100,7 @@ const Header = () => {
                         <div className="w-12 h-12 overflow-hidden rounded-xl shadow-md backdrop-blur-sm transition duration-300 hover:shadow-lg">
                             <Image 
                                 src="/favicon.ico"
-                                alt="DELCA"
+                                alt="Logo delca material de construção"
                                 width={48}
                                 height={48}
                                 className="object-cover"

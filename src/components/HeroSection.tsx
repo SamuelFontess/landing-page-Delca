@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src="/DelcaHero.webp"
-          alt="Fundo da loja de materiais de construção DELCA"
+          alt="Loja Delca Material de Construção cajupiranga parnamirim"
           className="w-full h-full object-cover"
         />
         <div className="" />
