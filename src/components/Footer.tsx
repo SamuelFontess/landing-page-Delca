@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, Smartphone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { WhatsappLogo } from "@phosphor-icons/react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,12 +26,12 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/delcacons/?locale=pt_BR', color: 'hover:text-blue-600' },
     { icon: Instagram, href: 'https://www.instagram.com/delcaconstrucao/', color: 'hover:text-pink-600' },
-    { icon: Smartphone, href: 'https://wa.me/5584996200389', color: 'hover:text-green-500' },
+    { icon: WhatsappLogo, href: 'https://wa.me/5584996200389', color: 'hover:text-green-500' },
     { icon: Mail, href: 'mailto:delcaconstrucoes@hotmail.com', color: 'hover:text-red-500' },
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '(84 ) 99620-0389' },
+    { icon: Phone, text: '(84) 99620-0389' },
     { icon: Mail, text: 'delcaconstrucoes@hotmail.com' },
     { icon: MapPin, text: 'Estrada pra pium, 2011 - Cajupiranga, RN' },
     { icon: Clock, text: 'Seg a Sex: 7h às 17h | Sáb: 7h às 12h' },
@@ -75,7 +76,11 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 ${social.color} transition-colors duration-300`}
                 >
-                  <social.icon className="w-5 h-5" />
+                  {social.icon === WhatsappLogo ? (
+                    <social.icon className="w-6 h-6"/>
+                  ) : (
+                    <social.icon className="w-5 h-5" />
+                  )}
                 </a>
               ))}
             </div>

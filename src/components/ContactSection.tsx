@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Send, Phone, Mail, MessageSquare, Clock, Instagram } from 'lucide-react';
+import { Send, Phone, Mail, Clock, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { WhatsappLogo } from "@phosphor-icons/react";
 
 // Esquema de validação do formulário
 const contactSchema = z.object({
@@ -17,6 +18,13 @@ const contactSchema = z.object({
   phone: z.string().min(10, 'O telefone deve ter pelo menos 10 dígitos.'),
   message: z.string().min(15, 'Sua mensagem deve ter pelo menos 15 caracteres.'),
 });
+
+const iconColors: Record<string, { bg: string; text: string }> = {
+  "Ligue para Nós": { bg: "bg-blue-100", text: "text-blue-500" },
+  "WhatsApp": { bg: "bg-green-100", text: "text-green-500" },
+  "Instagram": { bg: "bg-pink-100", text: "text-pink-500" },
+  "Envie um E-mail": { bg: "bg-red-100", text: "text-red-500" },
+};
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -53,7 +61,7 @@ const ContactSection = () => {
 
   const contactMethods = [
     { icon: Phone, title: 'Ligue para Nós', value: '(84) 99620-0389', href: 'tel:+5584996200389' },
-    { icon: MessageSquare, title: 'WhatsApp', value: 'Iniciar Conversa', href: 'https://wa.me/5584996200389' },
+    { icon: WhatsappLogo, title: 'WhatsApp', value: 'Iniciar Conversa', href: 'https://wa.me/5584996200389' },
     { icon: Instagram, title: 'Instagram', value: '@delcaconstrucao', href: 'https://www.instagram.com/delcaconstrucao/' },
     { icon: Mail, title: 'Envie um E-mail', value: 'delcaconstrucoes@hotmail.com', href: 'mailto:delcaconstrucoes@hotmail.com' },
   ];
@@ -109,7 +117,10 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            {contactMethods.map((method ) => (
+            {contactMethods.map((method) => {
+            const colors = iconColors[method.title] || { bg: "bg-gray-100", text: "text-gray-500" };
+            
+            return (
               <a
                 key={method.title}
                 href={method.href}
@@ -117,26 +128,33 @@ const ContactSection = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-5 p-6 bg-gray-50 border border-gray-200/80 rounded-2xl group hover:border-delca-orange/50 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-lg"
               >
-                <div className="flex-shrink-0 p-4 bg-delca-orange/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                  <method.icon className="w-7 h-7 text-delca-orange" />
-                </div>
+                <div
+                  className={`flex-shrink-0 p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 ${colors.bg}`}
+                  >
+                    <method.icon
+                      className={`${colors.text} ${
+                        method.title === "WhatsApp" ? "w-8 h-8" : "w-7 h-7"
+                      }`}
+                    />
+                  </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800">{method.title}</h4>
-                  <p className="text-delca-blue font-medium group-hover:underline">{method.value}</p>
+                  <p className="text-gray-600 font-medium group-hover:underline">{method.value}</p>
                 </div>
               </a>
-            ))}
-            <div className="p-6 bg-gray-50 border border-gray-200/80 rounded-2xl">
-              <div className="flex items-center gap-4 mb-3">
-                <div className="flex-shrink-0 p-3 bg-delca-blue/10 rounded-xl">
-                  <Clock className="w-6 h-6 text-delca-blue" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-800">Horário de funcionamento</h4>
+            );
+          })}
+            <div className="flex items-center gap-5 p-6 bg-gray-50 border border-gray-200/80 rounded-2xl shadow-sm">
+              <div className="flex-shrink-0 p-4 rounded-xl bg-delca-blue/10">
+                <Clock className="w-7 h-7 text-delca-blue" />
               </div>
-              <div className="space-y-1.5 text-gray-600 pl-16">
-                <p><strong>Segunda a Sexta:</strong> 7h às 17h</p>
-                <p><strong>Sábados:</strong> 7h às 12h</p>
-                <p><strong>Domingos:</strong> Fechado</p>
+              <div>
+                <h4 className="text-lg font-semibold text-gray-800">Horário de funcionamento</h4>
+                <div className="mt-1 space-y-1.5 text-gray-600 font-medium">
+                  <p><strong>Segunda a Sexta:</strong> 7h às 17h</p>
+                  <p><strong>Sábados:</strong> 7h às 12h</p>
+                  <p><strong>Domingos:</strong> Fechado</p>
+                </div>
               </div>
             </div>
           </motion.div>
