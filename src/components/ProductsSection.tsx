@@ -39,12 +39,12 @@ const ProductsSection = () => {
 
         {/* Abas de Categoria */}
         <div className="flex justify-center mb-12">
-          <div className="flex w-full max-w-lg p-2 bg-white rounded-2xl shadow-md border border-gray-200/80 space-x-2">
+          <div className="flex w-full max-w-2xl p-2 bg-white rounded-2xl shadow-md border border-gray-200/80 gap-3 overflow-hidden">
             {productsData.map(({ category, icon: Icon, color }) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className="relative w-full px-2 py-3 text-sm font-semibold transition-colors duration-300 rounded-xl flex items-center justify-center gap-2"
+                className="group relative flex-1 min-w-0 px-5 py-3 text-sm font-semibold transition-colors duration-300 rounded-xl flex items-center justify-center gap-2"
               >
                 {activeCategory === category && (
                   <motion.div
@@ -57,7 +57,7 @@ const ProductsSection = () => {
                   activeCategory === category ? 'text-white' : 'text-gray-600 group-hover:text-gray-900'
                 }`}>
                   <Icon className="w-5 h-5" />
-                  <span className="hidden sm:inline">{category}</span>
+                  <span className="hidden sm:inline whitespace-nowrap truncate">{category}</span>
                 </div>
               </button>
             ))}
@@ -81,12 +81,12 @@ const ProductsSection = () => {
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
               <div className="relative w-full h-48 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.description}
-                  layout="fill"
-                  objectFit="cover"
-                  className="group-hover:scale-110 transition-transform duration-300"
+              <Image
+                src={product.image}
+                alt={product.description}
+                fill
+                style={{ objectFit: 'contain' }}
+                className="group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">

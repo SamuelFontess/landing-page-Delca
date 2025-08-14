@@ -12,13 +12,18 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.delcaconstrucoes.com.br"),
+
   title: "DELCA Construções | Materiais de Construção em Parnamirim, RN",
-  description: "Encontre tudo para sua obra na DELCA Construções. Mais de 15 anos de experiência em Parnamirim, RN, com entrega rápida e os melhores preços em cimento, tijolos, tintas e mais.",
-  keywords: "materiais de construção, parnamirim, delca, Delca, DELCA, cimento, tijolo, areia, loja de construção, rn, material, material de construção",
+  description:
+    "Encontre tudo para sua obra na DELCA Construções. Mais de 15 anos de experiência em Parnamirim, RN, com entrega rápida e os melhores preços em cimento, tijolos, tintas e mais.",
+  keywords:
+    "materiais de construção, parnamirim, delca, Delca, DELCA, cimento, tijolo, areia, loja de construção, rn, material, material de construção",
 
   openGraph: {
     title: "DELCA Construções | Qualidade e Confiança para sua Obra",
-    description: "A sua parceira completa em materiais de construção em Parnamirim, RN.",
+    description:
+      "A sua parceira completa em materiais de construção em Parnamirim, RN.",
     url: "https://www.delcaconstrucoes.com.br/",
     siteName: "DELCA Construções",
     images: [
@@ -30,6 +35,14 @@ export const metadata: Metadata = {
     ],
     locale: "pt_BR",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DELCA Construções | Qualidade e Confiança para sua Obra",
+    description:
+      "A sua parceira completa em materiais de construção em Parnamirim, RN.",
+    images: ["/opengraph.jpeg"],
   },
 };
 
