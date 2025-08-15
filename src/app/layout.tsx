@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next"
 import WhatsAppButton from "@/components/WhatsAppButton";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <Analytics />
+        <OrganizationSchema />
       </body>
     </html>
   );
