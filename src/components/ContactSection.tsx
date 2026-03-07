@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,11 +29,12 @@ const iconColors: Record<string, { bg: string; text: string }> = {
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactSection = () => {
-  const ref = useRef(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -44,19 +45,22 @@ const ContactSection = () => {
     const subject = `Contato Site - ${data.name} (${data.phone})`;
     const body = `
       Olá,
-      
+
       Você recebeu uma nova mensagem do site DELCA.
       --------------------------------------------------
       Nome: ${data.name}
       Email: ${data.email}
       Telefone: ${data.phone}
       --------------------------------------------------
-      
+
       Mensagem:
       ${data.message}
     `;
     const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
+    reset();
+    setIsSuccess(true);
+    setTimeout(() => setIsSuccess(false), 6000);
   };
 
   const contactMethods = [
@@ -67,7 +71,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 lg:py-24 bg-white overflow-hidden" ref={ref}>
+    <section id="contact" className="py-20 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Cabeçalho */}
         <motion.div
@@ -201,6 +205,12 @@ const ContactSection = () => {
             {errors.message && <p className="text-red-600 text-xs mt-1.5">{errors.message.message}</p>}
             </div>
         </div>
+
+        {isSuccess && (
+          <div className="p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
+            E-mail preparado com sucesso! Confirme o envio no seu cliente de e-mail.
+          </div>
+        )}
 
         <Button type="submit"
             className="w-full text-lg py-7 bg-delca-orange hover:bg-delca-orange/90 text-white font-bold"

@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote, ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 // Interface para manter a estrutura dos dados
 interface Review {
@@ -172,7 +173,7 @@ const ReviewsSection = () => {
                   </div>
                   <p className="text-gray-300 leading-relaxed mb-6 flex-grow">&quot;{review.text}&quot;</p>
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-700">
-                    <img src={review.profile_photo_url} alt={review.author_name} className="w-12 h-12 rounded-full object-cover" />
+                    <Image src={review.profile_photo_url} alt={review.author_name} width={48} height={48} className="rounded-full object-cover" />
                     <div>
                       <div className="font-semibold text-white">{review.author_name}</div>
                       <div className="text-sm font-medium text-delca-blue">{review.role}</div>

@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { MapPin, ExternalLink } from 'lucide-react';
 import GoogleMap from './GoogleMap';
 
 const LocationSection = () => {
-  const ref = useRef(null);
   const googleMapsUrl = "https://www.google.com/maps/place/DELCA+Material+de+Constru%C3%A7%C3%A3o/@-5.941464,-35.2512114,20.25z/data=!4m12!1m5!3m4!2zNcKwNTYnMjkuMSJTIDM1wrAxNScwNC4yIlc!8m2!3d-5.9414184!4d-35.2511527!3m5!1s0x7b2578702be1e7b:0x12fcdaf5d2f42efc!8m2!3d-5.9414779!4d-35.2511315!16s%2Fg%2F11b6tbwgy2?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D";
 
   const itemVariants = {
@@ -15,30 +13,7 @@ const LocationSection = () => {
   } as const;
 
   return (
-    <section id="location" className="py-24 lg:py-32 bg-white" ref={ref}>
-      <div className="sr-only" aria-hidden="true">
-        <span>entrega rápida de material de construção RN</span>
-        <span>material de construção perto de mim Parnamirim</span>
-        <span>cajupiranga obra</span>
-      </div>
-      
-      {/* Meta keywords para SEO adicional */}
-      <div style={{ 
-        position: 'absolute', 
-        left: '-9999px', 
-        width: '1px', 
-        height: '1px', 
-        overflow: 'hidden' 
-      }}>
-        <h3>entrega rápida de material de construção RN</h3>
-        <p>material de construção perto de mim Parnamirim</p>
-        <h2>Estrada para Pium</h2>
-        <p>Nova Parnamirim</p>
-        <span>cajupiranga obra</span>
-        <span>cotovelo</span>
-        <span>pirangi RN</span>
-      </div>
-
+    <section id="location" className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"

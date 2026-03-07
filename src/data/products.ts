@@ -1,3 +1,4 @@
+import type { ElementType } from 'react';
 import { BrickWall, PaintBucket, Wrench, ShowerHead } from 'lucide-react';
 
 export interface Product {
@@ -9,7 +10,7 @@ export interface Product {
 
 export interface ProductCategory {
   category: string;
-  icon: React.ElementType;
+  icon: ElementType;
   color: string;
   products: Product[];
 }

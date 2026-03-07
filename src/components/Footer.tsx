@@ -5,14 +5,11 @@ import { Phone, Smartphone, Mail, MapPin, Clock, Facebook, Instagram } from 'luc
 import Image from 'next/image';
 import Link from 'next/link';
 import { WhatsappLogo } from "@phosphor-icons/react";
+import { scrollToSection } from '@/lib/scroll';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const quickLinks = [
     { name: 'Início', href: '#hero' },

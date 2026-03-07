@@ -10,6 +10,7 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

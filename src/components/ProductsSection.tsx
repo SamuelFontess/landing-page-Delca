@@ -6,11 +6,7 @@ import Image from 'next/image';
 import { productsData } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Truck, Phone } from 'lucide-react';
-
-const scrollToSection = (href: string) => {
-  const element = document.querySelector(href);
-  element?.scrollIntoView({ behavior: 'smooth' });
-};
+import { scrollToSection } from '@/lib/scroll';
 
 const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState(productsData[0].category);

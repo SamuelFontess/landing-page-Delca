@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Phone, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { scrollToSection as baseScrollToSection } from '@/lib/scroll';
 
 const menuItems = [
     { name: 'Início', href: '#hero' },
@@ -49,14 +50,7 @@ const Header = () => {
     // Função de rolagem suave
     const scrollToSection = (href: string) => {
         setIsMenuOpen(false);
-        setTimeout(() => {
-            if (href === '#hero') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                const element = document.querySelector(href);
-                element?.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 0);
+        setTimeout(() => baseScrollToSection(href), 0);
     };
 
     // Lógica de estilo do header fundo branco:
