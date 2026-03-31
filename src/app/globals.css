@@ -30,42 +30,59 @@
     --radius: 0.5rem;
   }
 
-  @layer utilities {
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  }
+  .dark {}
 
-  .dark {
-    
-  }
-
-  
   body {
     @apply bg-background text-foreground;
   }
 
-  /* Animação otimizada para o carrossel */
-  @keyframes scroll-horizontal {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  /* Grain texture para seções escuras */
+  .section-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 1;
   }
 
-  /* Animação suave para pausa no hover */
+  @keyframes scroll-horizontal {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
   .animate-scroll:hover {
     animation-play-state: paused;
   }
 
-  /* Classe utilitária para pausar animação no hover do grupo */
   .group:hover .group-hover\:pause {
     animation-play-state: paused;
+  }
+
+  /* Velocidade do carrossel de parceiros por breakpoint */
+  .partners-scroll { --animation-duration: 40s; }
+
+  @media (max-width: 639px) {
+    .partners-scroll { --animation-duration: 20s; }
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    .partners-scroll { --animation-duration: 25s; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .partners-scroll { --animation-duration: 30s; }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .partners-scroll { --animation-duration: 35s; }
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
