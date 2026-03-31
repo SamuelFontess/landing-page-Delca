@@ -5,6 +5,7 @@ import PartnersSection from "@/components/PartnerSection";
 import LocationSection from "@/components/LocalizationSection";
 import ContactSection from "@/components/ContactSection";
 import ProductsSection from "@/components/ProductsSection";
+import CTABand from "@/components/CTABand";
 import type { Metadata } from "next";
 import { productsData } from "@/data/products";
 
@@ -56,6 +57,7 @@ export default function Home() {
       <ProductsSection />
       <LocationSection />
       <ContactSection />
+      <CTABand />
     </>
   );
 }
