@@ -149,10 +149,10 @@ const ReviewsSection = () => {
         <div className="relative max-w-6xl mx-auto">
           {reviewsData.length > 3 && (
             <>
-              <button onClick={() => scroll('left')} className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition z-20 text-white" aria-label="Avaliação anterior">
+              <button onClick={() => scroll('left')} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition z-20 text-white" aria-label="Avaliação anterior">
                 <ArrowLeft className="w-6 h-6" />
               </button>
-              <button onClick={() => scroll('right')} className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition z-20 text-white" aria-label="Próxima avaliação">
+              <button onClick={() => scroll('right')} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition z-20 text-white" aria-label="Próxima avaliação">
                 <ArrowRight className="w-6 h-6" />
               </button>
             </>
