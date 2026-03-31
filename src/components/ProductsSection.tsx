@@ -1,137 +1,149 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { productsData } from '@/data/products';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Truck, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { scrollToSection } from '@/lib/scroll';
+
+const ease = [0.25, 0.46, 0.45, 0.94] as const;
+
+const sectionBgMap: Record<string, string> = {
+  'bg-delca-orange': 'hsl(var(--delca-orange) / 0.07)',
+  'bg-delca-blue':   'hsl(var(--delca-blue)   / 0.07)',
+  'bg-delca-red':    'hsl(var(--delca-red)     / 0.07)',
+};
 
 const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState(productsData[0].category);
   const activeCategoryData = productsData.find(cat => cat.category === activeCategory);
   const activeProducts = activeCategoryData?.products || [];
-  const activeColor = activeCategoryData?.color || 'bg-delca-orange';
+  const sectionBg = sectionBgMap[activeCategoryData?.color ?? ''] ?? '';
 
   return (
-    <section id="products" className="py-24 bg-gray-100">
-      <div className="container mx-auto px-4">
-        {/* Cabeçalho da Seção */}
+    <section
+      id="products"
+      className="pt-28 md:pt-36 pb-14 md:pb-16 transition-colors duration-500"
+      style={{ backgroundColor: sectionBg || '#ffffff' }}
+    >
+      <div className="container mx-auto px-6 max-w-6xl">
+
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease }}
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tighter">
-            Nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red">Produtos</span>
+          <span className="inline-flex border-l-[3px] border-delca-orange pl-4 text-xs font-bold text-delca-orange tracking-[0.2em] uppercase">
+            Catálogo
+          </span>
+          <h2 className="mt-4 font-display font-700 text-[clamp(1.8rem,4vw,3rem)] text-zinc-950 leading-[1.05] uppercase tracking-wide">
+            Nossos <span className="text-delca-orange">Produtos</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Uma seleção dos nossos melhores produtos, organizados para facilitar sua escolha.
+          <p className="mt-3 text-sm text-slate-500 max-w-md leading-relaxed">
+            Seleção dos melhores produtos, organizados por categoria para facilitar sua busca.
           </p>
         </motion.div>
 
-        {/* Abas de Categoria */}
-        <div className="flex justify-center mb-12">
-          <div className="flex w-full max-w-2xl p-2 bg-white rounded-2xl shadow-md border border-gray-200/80 gap-3 overflow-hidden">
-            {productsData.map(({ category, icon: Icon, color }) => (
+        {/* Tabs */}
+        <div className="flex gap-1.5 mb-10 overflow-x-auto pb-1 scrollbar-hide">
+          {productsData.map(({ category, icon: Icon, color }) => {
+            const active = activeCategory === category;
+            return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className="group relative flex-1 min-w-0 px-5 py-3 text-sm font-semibold transition-colors duration-300 rounded-xl flex items-center justify-center gap-2"
+                className={`relative flex-shrink-0 flex items-center gap-2 px-3 sm:px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  active
+                    ? `${color} text-white`
+                    : 'bg-white border border-gray-200 text-slate-500 hover:text-zinc-800 hover:border-gray-300'
+                }`}
               >
-                {activeCategory === category && (
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                <span className="hidden sm:inline">{category}</span>
+                {active && (
                   <motion.div
-                    className={`absolute inset-0 ${activeColor} rounded-xl z-0`}
-                    layoutId="active-category-background"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    layoutId="tab-indicator"
+                    className={`absolute inset-0 rounded-lg ${color} -z-10`}
+                    transition={{ duration: 0.25, ease }}
                   />
                 )}
-                <div className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${
-                  activeCategory === category ? 'text-white' : 'text-gray-600 group-hover:text-gray-900'
-                }`}>
-                  <Icon className="w-5 h-5" />
-                  <span className="hidden sm:inline whitespace-nowrap truncate">{category}</span>
-                </div>
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Grid de Produtos */}
-        <motion.div
-          key={activeCategory}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {activeProducts.map((product, index) => (
-            <motion.div
-              key={product.name}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden group flex flex-col"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <div className="relative w-full h-48 overflow-hidden">
-              <Image
-                src={product.image}
-                alt={product.description}
-                fill
-                style={{ objectFit: 'contain' }}
-                className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-4 group-hover:text-delca-orange transition-colors duration-300">{product.name}</h3>
-                
-                <ul className="space-y-2 text-gray-600 text-sm mb-6 flex-grow">
-                  {product.features.map(feature => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="border-t border-gray-100 pt-4 flex justify-around text-xs text-gray-500">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-delca-blue" />
-                    <span>Qualidade Garantida</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-delca-blue" />
-                    <span>Entrega Rápida</span>
-                  </div>
+        {/* Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35, ease }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {activeProducts.map((product, index) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease, delay: index * 0.04 }}
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden group flex flex-col hover:-translate-y-1 hover:shadow-md hover:border-gray-300 transition-all duration-200"
+              >
+                <div className="relative w-full h-44 overflow-hidden bg-white border-b border-gray-100">
+                  <Image
+                    src={product.image}
+                    alt={product.description}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    className="p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-sm font-bold text-zinc-800 group-hover:text-delca-orange transition-colors duration-200">
+                    {product.name}
+                  </h3>
+                  <ul className="mt-3 space-y-1.5 flex-grow">
+                    {product.features.map(feature => (
+                      <li key={feature} className="flex items-start gap-2 text-xs text-slate-500">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-delca-orange flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-        {/* CTA para Catálogo Completo/Entrar em contato */}
+        {/* CTA */}
         <motion.div
-          className="text-center mt-16"
+          className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 p-6 bg-zinc-950 rounded-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, ease }}
         >
-          <p className="text-gray-600 mb-4">
-            Não encontrou o que procura? Temos muito mais produtos disponíveis!
-          </p>
+          <div>
+            <p className="text-white font-semibold text-sm">Não encontrou o que procura?</p>
+            <p className="text-zinc-500 text-xs mt-0.5">Temos muito mais produtos disponíveis — entre em contato.</p>
+          </div>
           <Button
             onClick={() => scrollToSection('#contact')}
-            size="lg"
-            className="bg-delca-blue hover:bg-delca-blue/90 text-white font-semibold"
+            size="sm"
+            className="flex-shrink-0 bg-delca-orange hover:bg-delca-orange/90 text-white font-semibold px-6 h-10 rounded-lg transition-colors duration-200"
           >
-            <Phone className="w-5 h-5 mr-2" />
-            Entre em Contato
+            Falar com a equipe
+            <ArrowRight className="w-4 h-4 ml-1.5" />
           </Button>
         </motion.div>
+
       </div>
     </section>
   );
