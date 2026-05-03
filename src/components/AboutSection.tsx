@@ -1,91 +1,77 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Building2, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+const ease = [0.25, 0.46, 0.45, 0.94] as const;
+
+const highlights = [
+  'Qualidade superior em todos os produtos.',
+  'Atendimento personalizado e especialista para sua obra.',
+  'Parceria com as melhores marcas do mercado.',
+  'Entrega rápida em Parnamirim-RN e região.',
+];
+
 
 const AboutSection = () => {
-  const highlights = [
-    "Qualidade superior em todos os produtos.",
-    "Atendimento personalizado e especialista para sua obra.",
-    "Parceria com as melhores marcas do mercado.",
-    "Compromisso com a entrega rápida em Parnamirim RN e região."
-  ];
-
   return (
-    <section id="about" className="min-h-screen flex items-center py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        
-        <div className="grid xl:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Coluna da Esquerda: Texto Sobre a Empresa */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <Building2 className="w-7 h-7 text-delca-blue" />
-              <span className="text-lg font-semibold text-delca-blue tracking-wider">
-                QUEM SOMOS
-              </span>
-            </div>
+    <section id="about" className="py-28 md:py-36 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tighter">
-              Sua Loja de <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red">Materiais de Construção</span> em Parnamirim.
+        {/* Texto + highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.75, ease }}
+          className="grid lg:grid-cols-[1fr_1fr] gap-10 xl:gap-16 items-start"
+        >
+          <div>
+            <span className="inline-flex border-l-[3px] border-delca-orange pl-4 text-xs font-bold text-delca-orange tracking-[0.2em] uppercase font-body">
+              Quem Somos
+            </span>
+
+            <h2 className="mt-5 font-display font-700 text-[clamp(2.2rem,5vw,3.5rem)] text-zinc-950 leading-[1.05] uppercase tracking-wide">
+              Sua loja de{' '}
+              <span className="text-delca-orange">materiais</span>{' '}
+              em Parnamirim.
             </h2>
 
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-              A <span className="text-transparent bg-clip-text bg-gradient-to-r from-delca-orange to-delca-red text-2xl font-bold">DELCA Construções</span> é a sua parceira de confiança com mais de 15 anos de experiência no mercado da construção civil em Parnamirim-RN. Somos conhecidos pelo nosso compromisso, atendimento dedicado e por oferecer o melhor preço justo da região.
+            <p className="mt-6 text-[15px] text-slate-500 leading-relaxed">
+              A <span className="font-semibold text-slate-800">DELCA Construções</span> é sua parceira há mais de 15 anos — com atendimento dedicado, produtos das melhores marcas e o melhor preço da região. Do básico ao acabamento, tudo em um só lugar.
             </p>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-              Nosso diferencial está na vasta gama de produtos, que vai desde materiais básicos como cimento e areia, até acabamentos de alta qualidade. Tudo selecionado das melhores marcas para garantir a durabilidade da sua obra.
-            </p>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-              Contamos com um ponto estratégico e otimizamos nossa logística para garantir entrega rápida, agilizando seu projeto. Na Delca, você encontra eficiência e a certeza de um bom negócio.
-            </p>
+          </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <ul className="space-y-4">
-                {highlights.map((value, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center">
-                      <Check className="w-4 h-4" />
-                    </div>
-                    <span className="text-gray-700 font-medium">{value}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+          <ul className="mt-0 lg:mt-14 space-y-3">
+            {highlights.map((text, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1 w-4 h-4 rounded-full bg-delca-orange/10 flex items-center justify-center">
+                  <Check className="w-2.5 h-2.5 text-delca-orange" />
+                </div>
+                <span className="text-sm text-slate-600 leading-relaxed">{text}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
-          {/* Coluna da Direita: Imagem da Loja */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-          >
-            <div className="absolute -inset-3 bg-gradient-to-br from-delca-orange/10 to-delca-blue/10 rounded-3xl blur-xl opacity-70" />
-            
-            <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-xl"
-              whileHover={{ scale: 1.03, boxShadow: '0px 20px 40px rgba(0,0,0,0.15)' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <Image
-                src="/DelcaSobre.jpeg"
-                alt="Ambiente interno da loja de materiais de construção DELCA em Parnamirim, RN"
-                width={600}
-                height={700}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </motion.div>
+        {/* Vídeo 16:9 full-width */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease, delay: 0.2 }}
+          className="mt-14 rounded-2xl overflow-hidden aspect-video"
+        >
+          <video
+            src="/delca-sobre.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-        </div>
       </div>
     </section>
   );

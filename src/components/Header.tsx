@@ -19,48 +19,19 @@ const menuItems = [
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    
-    const pathname = usePathname();
 
+    const pathname = usePathname();
     const isHomePage = pathname === '/';
 
-    // Efeito para detectar a rolagem da página
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        handleScroll();
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // Efeito para bloquear a rolagem do body
-    useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-        return () => {
-            document.body.style.overflow = 'auto';
-        };
+        document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
+        return () => { document.body.style.overflow = 'auto'; };
     }, [isMenuOpen]);
 
-    // Função de rolagem suave
     const scrollToSection = (href: string) => {
         setIsMenuOpen(false);
         setTimeout(() => baseScrollToSection(href), 0);
     };
-
-    // Lógica de estilo do header fundo branco:
-    // 1. A página foi rolada, OU
-    // 2. O menu mobile está aberto, OU
-    // 3. NÃO estamos na página inicial
-    const showWhiteHeader = isScrolled || isMenuOpen || !isHomePage;
-
-    const textColorClass = showWhiteHeader ? 'text-gray-800' : 'text-white';
-    const navLinkColorClass = showWhiteHeader ? 'text-gray-600 hover:text-delca-orange' : 'text-white hover:text-delca-orange';
 
     return (
         <>
@@ -76,14 +47,7 @@ const Header = () => {
                 )}
             </AnimatePresence>
 
-            <motion.header
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-                    showWhiteHeader ? 'bg-white/95 backdrop-blur-lg shadow-md' : 'bg-transparent'
-                }`}
-            >
+            <header className="absolute top-0 left-0 right-0 z-50 bg-transparent w-full">
                 <div className="container mx-auto flex items-center justify-between h-20 px-4">
                     {/* Logo */}
                     <motion.div
@@ -101,8 +65,8 @@ const Header = () => {
                                 />
                         </div>
                         <div>
-                            <h1 className={`text-2xl font-bold ${textColorClass} transition-colors duration-300`}>DELCA</h1>
-                            <p className={`text-xs tracking-widest -mt-1 ${showWhiteHeader ? 'text-gray-500' : 'text-gray-300'} transition-colors duration-300`}>CONSTRUÇÕES</p>
+                            <h1 className="text-2xl font-bold text-white">DELCA</h1>
+                            <p className="text-xs tracking-widest -mt-1 text-gray-300">CONSTRUÇÕES</p>
                         </div>
                     </motion.div>
 
@@ -113,7 +77,7 @@ const Header = () => {
                                 <button
                                     key={item.name}
                                     onClick={() => scrollToSection(item.href)}
-                                    className={`font-medium pb-1 border-b-2 border-transparent hover:border-delca-orange/50 transition-all duration-300 ${navLinkColorClass}`}
+                                    className="font-medium pb-1 border-b-2 border-transparent text-white hover:text-delca-orange hover:border-delca-orange/50 transition-all duration-300"
                                 >
                                     {item.name}
                                 </button>
@@ -150,7 +114,7 @@ const Header = () => {
                                         exit={{ rotate: 90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        {isMenuOpen ? <X className={`h-7 w-7 ${textColorClass}`} /> : <Menu className={`h-7 w-7 ${textColorClass}`} />}
+                                        {isMenuOpen ? <X className="h-7 w-7 text-white" /> : <Menu className="h-7 w-7 text-white" />}
                                     </motion.div>
                                 </AnimatePresence>
                             </button>
@@ -192,7 +156,7 @@ const Header = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </motion.header>
+            </header>
         </>
     );
 };

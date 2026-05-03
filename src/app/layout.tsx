@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Lato, Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +11,14 @@ const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
+  variable: "--font-body",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -55,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${lato.className} antialiased`}>
+      <body className={`${lato.variable} ${oswald.variable} ${lato.className} antialiased`}>
         <Header />
         <main>
         {children}
