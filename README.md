@@ -73,7 +73,7 @@ $ yarn install
 
 # 4. Crie o arquivo de variáveis de ambiente
 # Crie um arquivo chamado .env.local na raiz do projeto e adicione suas chaves da API do Google.
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=SUA_CHAVE_DA_API_DO_GOOGLE_MAPS_AQUI
+GOOGLE_MAPS_API_KEY=SUA_CHAVE_DA_API_DO_GOOGLE_MAPS_AQUI
 
 # 5. Execute a aplicação
 $ npm run dev
