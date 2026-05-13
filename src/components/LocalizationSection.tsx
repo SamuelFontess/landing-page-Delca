@@ -1,16 +1,16 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
 import { WhatsappLogo } from '@phosphor-icons/react';
-import GoogleMap from './GoogleMap';
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 const googleMapsUrl =
   'https://www.google.com/maps/place/DELCA+Material+de+Constru%C3%A7%C3%A3o/@-5.941464,-35.2512114,20.25z/data=!4m12!1m5!3m4!2zNcKwNTYnMjkuMSJTIDM1wrAxNScwNC4yIlc!8m2!3d-5.9414184!4d-35.2511527!3m5!1s0x7b2578702be1e7b:0x12fcdaf5d2f42efc!8m2!3d-5.9414779!4d-35.2511315!16s%2Fg%2F11b6tbwgy2?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D';
 
-const LocationSection = () => {
+export default function LocationSection({ map }: { map: ReactNode }) {
   return (
     <section id="location" className="pt-14 md:pt-16 pb-14 md:pb-16 bg-white">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -122,7 +122,7 @@ const LocationSection = () => {
             className="flex flex-col gap-3"
           >
             <div className="relative rounded-2xl overflow-hidden flex-1 min-h-[420px] border border-gray-200 shadow-sm">
-              <GoogleMap />
+              {map}
             </div>
             <a
               href={googleMapsUrl}
@@ -139,6 +139,4 @@ const LocationSection = () => {
       </div>
     </section>
   );
-};
-
-export default LocationSection;
+}
