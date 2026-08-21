@@ -27,7 +27,7 @@ const SimpleHeader = () => {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">DELCA</h1>
+            <p className="text-2xl font-bold text-gray-800">DELCA</p>
             <p className="text-xs tracking-widest -mt-1 text-gray-500">CONSTRUÇÕES</p>
           </div>
         </Link>
