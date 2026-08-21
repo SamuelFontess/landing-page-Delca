@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --delca-orange: 25 95% 53%;
     --delca-blue: 213 87% 58%;

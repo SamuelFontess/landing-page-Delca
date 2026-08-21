@@ -1,19 +1,18 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.delcaconstrucoes.com.br';
-
   return [
     {
-      url: baseUrl,
-      lastModified: new Date( ),
-      changeFrequency: 'monthly',
+      url: `${SITE_URL}/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/politica-de-privacidade`,
+      url: `${SITE_URL}/politica-de-privacidade`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.5,
     },
   ];

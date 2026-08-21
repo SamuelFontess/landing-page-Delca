@@ -25,7 +25,7 @@ O site é uma **Landing Page** com navegação suave entre as seções, compleme
 - **Animações e Micro-interações:** Animações sutis e elegantes com **Framer Motion** para enriquecer a experiência do usuário.
 - **Carrossel de Parceiros:** Um carrossel infinito e dinâmico para exibir as marcas parceiras, construído com CSS puro e animações.
 - **Mapa Interativo:** Integração com a **Google Maps API** para exibir a localização da loja de forma interativa e customizada.
-- **Formulário de Contato Funcional:** Um formulário com validação de dados em tempo real que gera um link `mailto:` para envio direto pelo cliente de e-mail do usuário, eliminando a necessidade de um backend de e-mail.
+- **Formulário de Contato:** Formulário com validação em tempo real enviado via API para a equipe DELCA usando **Resend**.
 - **Conformidade com LGPD:** Inclusão de uma página de Política de Privacidade para garantir a transparência no uso de dados.
 
 ---
@@ -72,8 +72,11 @@ $ npm install
 $ yarn install
 
 # 4. Crie o arquivo de variáveis de ambiente
-# Crie um arquivo chamado .env.local na raiz do projeto e adicione suas chaves da API do Google.
-GOOGLE_MAPS_API_KEY=SUA_CHAVE_DA_API_DO_GOOGLE_MAPS_AQUI
+# Crie um arquivo .env na raiz do projeto (veja .env.example):
+GOOGLE_MAPS_API_KEY=sua_chave_google_maps
+RESEND_API_KEY=sua_chave_resend
+RESEND_FROM_EMAIL="DELCA Construções <contato@delcaconstrucoes.com.br>"
+CONTACT_TO_EMAIL=delcaconstrucoes@hotmail.com
 
 # 5. Execute a aplicação
 $ npm run dev

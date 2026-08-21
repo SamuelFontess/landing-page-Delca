@@ -1,23 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Smartphone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { WhatsappLogo } from "@phosphor-icons/react";
-import { scrollToSection } from '@/lib/scroll';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
 
   const quickLinks = [
-    { name: 'Início', href: '#hero' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Avaliações', href: '#reviews' },
-    { name: 'Localização', href: '#location' },
-    { name: 'Produtos', href: '#products' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '/#hero' },
+    { name: 'Sobre', href: '/#about' },
+    { name: 'Avaliações', href: '/#reviews' },
+    { name: 'Localização', href: '/#location' },
+    { name: 'Produtos', href: '/#products' },
+    { name: 'Contato', href: '/#contact' },
   ];
 
   const socialLinks = [
@@ -92,14 +91,14 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold text-white">Links Rápidos</h4>
             <nav className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(link.href)}
+              {quickLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
                   className="block text-gray-300 hover:text-delca-orange transition-colors duration-200"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </nav>
           </motion.div>

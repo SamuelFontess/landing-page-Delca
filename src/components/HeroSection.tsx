@@ -59,9 +59,9 @@ export function HeroSection() {
               {...fadeUp(0.2)}
               className="font-display font-700 text-[clamp(2.5rem,8vw,6rem)] text-white leading-[0.95] tracking-wide uppercase"
             >
-              Construa com<br />
-              <span className="text-delca-orange">Confiança</span>
-              <br />e Qualidade
+              Materiais de<br />
+              <span className="text-delca-orange">Construção</span>
+              <br />em Parnamirim
             </motion.h1>
 
             <motion.div {...fadeUp(0.32)} className="mt-6 flex items-center gap-3">

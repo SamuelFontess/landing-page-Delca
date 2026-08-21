@@ -1,8 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade - DELCA Construções',
-  description: 'Entenda como a DELCA Construções coleta, usa e protege seus dados pessoais.',
+  title: "Política de Privacidade - DELCA Construções",
+  description:
+    "Entenda como a DELCA Construções coleta, usa e protege seus dados pessoais.",
+  alternates: {
+    canonical: `${SITE_URL}/politica-de-privacidade`,
+  },
 };
 
 const PrivacyPolicyPage = () => {
@@ -13,7 +18,7 @@ const PrivacyPolicyPage = () => {
           <h1>Política de Privacidade</h1>
           
           <p className="lead">
-            Última atualização: 24 de julho de 2025
+            Última atualização: 21 de agosto de 2026
           </p>
 
           <p>
@@ -31,12 +36,16 @@ const PrivacyPolicyPage = () => {
             <li><strong>Nome:</strong> Para nos dirigirmos a você corretamente.</li>
             <li><strong>E-mail:</strong> Para respondermos à sua solicitação.</li>
             <li><strong>Telefone:</strong> Para entrarmos em contato, caso seja necessário para o atendimento.</li>
+            <li><strong>Assunto:</strong> Para categorizar sua solicitação (orçamento, estoque, entrega, etc.).</li>
             <li><strong>Mensagem:</strong> Para entendermos sua dúvida ou solicitação de orçamento.</li>
           </ul>
 
           <h2>2. Uso dos Dados</h2>
           <p>
-            Utilizamos os dados coletados exclusivamente para a finalidade para a qual foram fornecidos: responder às suas mensagens, fornecer orçamentos e informações sobre nossos produtos e serviços. Não compartilhamos suas informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
+            Utilizamos os dados coletados exclusivamente para a finalidade para a qual foram fornecidos: responder às suas mensagens, fornecer orçamentos e informações sobre nossos produtos e serviços.
+          </p>
+          <p>
+            Para o envio das mensagens do formulário de contato, utilizamos o serviço <strong>Resend</strong> como operador de e-mail (subprocessador). Os dados informados (nome, e-mail, telefone, assunto e mensagem) são transmitidos de forma segura à plataforma apenas para encaminhar a solicitação à nossa equipe. Não vendemos nem compartilhamos seus dados com terceiros para fins de marketing.
           </p>
 
           <h2>3. Armazenamento dos Dados</h2>
@@ -69,7 +78,7 @@ const PrivacyPolicyPage = () => {
             Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.
           </p>
           <p>
-            Esta política é efetiva a partir de <strong>Julho de 2025</strong>.
+            Esta política é efetiva a partir de <strong>Agosto de 2026</strong>.
           </p>
         </div>
       </div>

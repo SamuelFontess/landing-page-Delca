@@ -64,6 +64,7 @@ const AboutSection = () => {
         >
           <video
             src="/delca-sobre.mp4"
+            poster="/delcahero2.webp"
             autoPlay
             muted
             loop
