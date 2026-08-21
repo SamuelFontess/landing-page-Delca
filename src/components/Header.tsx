@@ -98,7 +98,7 @@ const Header = () => {
                 type="button"
                 className="p-2"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Abrir menu"
+                aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
                 aria-controls="mobile-menu"
                 aria-expanded={isMenuOpen}
               >
