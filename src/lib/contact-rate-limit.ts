@@ -7,8 +7,18 @@ type RateLimitEntry = {
 
 const store = new Map<string, RateLimitEntry>();
 
+function pruneExpiredEntries(now: number) {
+  for (const [key, entry] of store) {
+    if (now > entry.resetAt) {
+      store.delete(key);
+    }
+  }
+}
+
 export function isContactRateLimited(key: string): boolean {
   const now = Date.now();
+  pruneExpiredEntries(now);
+
   const entry = store.get(key);
 
   if (!entry || now > entry.resetAt) {
