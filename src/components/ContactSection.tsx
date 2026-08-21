@@ -65,6 +65,7 @@ const ContactSection = () => {
 
   const onSubmit = async (data: ContactFormInput) => {
     setSubmitError(null);
+    setIsSuccess(false);
 
     try {
       const response = await fetch('/api/contact', {
