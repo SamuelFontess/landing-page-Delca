@@ -8,7 +8,7 @@ import {
 } from "@/lib/contact";
 import { isContactRateLimited, contactRateLimitRetryAfterSeconds } from "@/lib/contact-rate-limit";
 import { contactSchema } from "@/lib/contact-schema";
-import { getClientIp, isTrustedContactRequest } from "@/lib/contact-request";
+import { getClientIp, isTrustedContactRequest, readLimitedJsonBody } from "@/lib/contact-request";
 
 export const dynamic = "force-dynamic";
 
@@ -59,13 +59,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  let json: unknown;
-
-  try {
-    json = await request.json();
-  } catch {
-    return jsonResponse({ error: "Corpo da requisição inválido." }, 400);
+  const bodyResult = await readLimitedJsonBody(request, MAX_CONTACT_BODY_BYTES);
+  if (!bodyResult.ok) {
+    return jsonResponse(
+      { error: bodyResult.status === 413 ? "Requisição muito grande." : "Corpo da requisição inválido." },
+      bodyResult.status,
+    );
   }
+
+  const json = bodyResult.data;
 
   if (isHoneypotTriggered(json)) {
     return successResponse();
