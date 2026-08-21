@@ -1,8 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade - DELCA Construções',
-  description: 'Entenda como a DELCA Construções coleta, usa e protege seus dados pessoais.',
+  title: "Política de Privacidade - DELCA Construções",
+  description:
+    "Entenda como a DELCA Construções coleta, usa e protege seus dados pessoais.",
+  alternates: {
+    canonical: `${SITE_URL}/politica-de-privacidade`,
+  },
 };
 
 const PrivacyPolicyPage = () => {
