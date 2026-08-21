@@ -11,12 +11,12 @@ const Footer = () => {
 
 
   const quickLinks = [
-    { name: 'Início', href: '#hero' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Avaliações', href: '#reviews' },
-    { name: 'Localização', href: '#location' },
-    { name: 'Produtos', href: '#products' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '/#hero' },
+    { name: 'Sobre', href: '/#about' },
+    { name: 'Avaliações', href: '/#reviews' },
+    { name: 'Localização', href: '/#location' },
+    { name: 'Produtos', href: '/#products' },
+    { name: 'Contato', href: '/#contact' },
   ];
 
   const socialLinks = [
