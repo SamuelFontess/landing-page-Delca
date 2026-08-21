@@ -7,9 +7,12 @@ export const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(10, "O telefone deve ter pelo menos 10 dígitos.")
     .max(20)
-    .regex(/^[\d\s()+-]+$/, "Telefone inválido."),
+    .regex(/^[\d\s()+-]+$/, "Telefone inválido.")
+    .refine((value) => {
+      const digits = value.replace(/\D/g, "");
+      return digits.length >= 10 && digits.length <= 15;
+    }, "O telefone deve ter pelo menos 10 dígitos."),
   subject: z
     .union([z.enum(CONTACT_SUBJECTS), z.literal("")])
     .optional()
