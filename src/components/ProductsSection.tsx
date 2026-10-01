@@ -78,7 +78,7 @@ const ProductsSection = () => {
           <div
             key={category}
             hidden={activeCategory !== category}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            className={`${activeCategory === category ? 'grid' : 'hidden'} grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5`}
           >
             {products.map((product) => (
               <article
